@@ -6,7 +6,7 @@ class AuditSchema extends Schema {
   up () {
     this.create('audits', (table) => {
       table.increments()
-      table.integer('user_id').unsigned().references('id').inTable('users')
+      table.integer('user_uuid').unsigned().references('uuid').inTable('users')
       table.integer('auditable_id').notNullable().index()
       table.string('auditable').notNullable()
       table.string('event').notNullable()
